@@ -21,9 +21,11 @@ export default function Home() {
             <div className="dot">
               <div className="pulse"></div>
             </div>
+
+             <p>Introducing Roomify 1.0</p>
           </div>
 
-          <h1>Build beautiful spaces at the speed pf thought with Roomify</h1>
+          <h1>Build beautiful spaces at the speed of thought with Roomify</h1>
 
           <p className="subtitle">
             Roomify is an AI-first design environment that helps you visualize, render, and ship architectural projects faster than ever. 
@@ -37,6 +39,7 @@ export default function Home() {
             <Button className="demo" variant="outline" size="lg">
                Watch Demo
             </Button>
+          </div>
 
             <div id="upload" className="upload-shell">
               <div className="grid-overley">
@@ -55,7 +58,6 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div>
         </section>
 
         <section className="projects">
@@ -79,21 +81,22 @@ export default function Home() {
                       <span>Community</span>
                     </div>
                   </div>
-               </div>
-            </div>
 
-            <div className="card-body">
-              <div>
-                <h3>Project Manhattan</h3>
-                <div className="meta"> 
-                  <Clock size={12} />
-                  <span>{new Date('01.01.2027').toLocaleDateString()}</span>
-                  <span>By John Doe</span>
-                </div>
-              </div>
-              <div className="arrow">
-                <ArrowUpRight size={18} />
-              </div>
+                  <div className="card-body">
+                    <div>
+                      <h3>Project Manhattan</h3>
+                      
+                      <div className="meta"> 
+                        <Clock size={12} />
+                        <span>{new Date('01.01.2027').toLocaleDateString()}</span>
+                        <span>By John Doe</span>
+                      </div>
+                    </div>
+                    <div className="arrow">
+                      <ArrowUpRight size={18} />
+                    </div>
+                  </div>
+               </div>
             </div>
           </div>
         </section>
