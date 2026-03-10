@@ -1,0 +1,744 @@
+<html lang="en"><!--<![endif]--><!-- BEGIN HEAD -->
+
+<head>
+    <meta charset="utf-8">
+    <title>PRIISMS Online Log In</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta content="PRIISMS Online System" name="description">
+    <meta content="Allan Robert B. Sanchez" name="author">
+    <meta name="csrf-token" content="7YhRxiPK2YWK4NcMtBibHDo0xQIbLsqj2s6kdr5d">
+    <link rel="icon" href="https://sms.dhvsu.edu.ph/general/getThemePhoto?tid=1&amp;field=favicon" type="image/gif"
+        sizes="16x16">
+    <link href="https://sms.dhvsu.edu.ph/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet"
+        type="text/css">
+    <link href="https://sms.dhvsu.edu.ph/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet"
+        type="text/css">
+    <link href="https://sms.dhvsu.edu.ph/assets/admin/pages/css/login-soft.css?v1.2" rel="stylesheet" type="text/css">
+    <link href="https://sms.dhvsu.edu.ph/assets/global/css/components.css" id="style_components" rel="stylesheet"
+        type="text/css">
+    <link href="https://sms.dhvsu.edu.ph/assets/admin/layout/css/custom.css" rel="stylesheet" type="text/css">
+    <style>
+        /* .login-content a{
+			color: #000000 !important;
+	} */
+        .login .content_register {
+            width: 600px !important;
+            background-color: #fff !important;
+            color: #000 !important;
+        }
+
+        .login .content_register h3,
+        .login .content_register p {
+            color: #000 !important;
+        }
+
+        .forget-password {
+            margin-top: 5px !important;
+        }
+
+        .maroon {
+            background-color: #7b2828;
+            color: #fff;
+        }
+
+        /* .btn:hover{
+		color:#fff;
+		background-color: #c54242;
+	} */
+    </style>
+</head>
+
+<body class="login">
+    <div class="body-login ">
+        <div class="logo">
+
+            <img src="https://sms.dhvsu.edu.ph/general/getThemePhoto?tid=1&amp;field=login_banner"
+                class="img-responsive" style="display:inline-block; height: 150px; margin-bottom:10px;">
+
+        </div>
+        <div class="menu-toggler sidebar-toggler"></div>
+        <div class="content login-content ">
+            <form class="login-form" method="POST" action="https://sms.dhvsu.edu.ph/auth/login" novalidate="novalidate">
+                <h3 class="form-title login-form-title">Login to your account</h3>
+                <div class="form-group">
+                    <input type="hidden" name="_token" id="_token" value="7YhRxiPK2YWK4NcMtBibHDo0xQIbLsqj2s6kdr5d">
+                    <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                    <label class="control-label visible-ie8 visible-ie9">Username</label>
+                    <div class="input-icon">
+                        <i class="fa fa-user"></i>
+                        <input class="form-control placeholder-no-fix input-username valid" tabindex="1" type="text"
+                            autocomplete="off" placeholder="Username" name="Username" id="Username" value=""
+                            style="background-color:transparent; color:white" aria-invalid="false">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label visible-ie8 visible-ie9">Password</label>
+                    <div class="input-icon right">
+                        <i class="fa fa-eye-slash togglePass" onclick="togglePassword(this,'password')"
+                            style="cursor:pointer;"></i>
+                    </div>
+                    <div class="input-icon">
+                        <i class="fa fa-lock"></i>
+                        <input class="form-control placeholder-no-fix input-password" tabindex="2" type="password"
+                            autocomplete="off" placeholder="Password" name="password" id="password" value=""
+                            style="background-color:transparent; color:white">
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-6">
+                            <div class="">
+                                <input type="checkbox" name="remember" value="1">
+                                <label class="checkbox remember-me">Remember Me</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-6">
+                            <button type="submit" class="btn blue pull-right ">
+                                <span class="login-button">Login</span> <i class="m-icon-swapright m-icon-white"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="login-options hide">
+                    <h4>Or login with</h4>
+                    <ul class="social-icons">
+                        <li><a class="facebook" data-original-title="facebook" href="javascript:;"></a></li>
+                        <li><a class="twitter" data-original-title="Twitter" href="javascript:;"></a></li>
+                        <li><a class="googleplus" data-original-title="Goole Plus" href="javascript:;"></a></li>
+                        <li><a class="linkedin" data-original-title="Linkedin" href="javascript:;"></a></li>
+                    </ul>
+                </div>
+                <div class="forget-password">
+                    <h4 class="forgot-password">Forgot your password ?</h4>
+                    <p>
+                        <span class="no-worries">no worries,</span> <a href="javascript:;" id="forget-password"
+                            class="click-here-label">please click here</a>
+                        <span class="to-reset-password">to reset your password.</span>
+                    </p>
+                </div>
+                <div class="create-account">
+                    <p>
+                        <span class="dont-have-account">Don't have an account yet ?</span> <br>
+                        <a class="btn btn-sm btn-success" href="javascript:;"
+                            data-eng="Create an account (enrolled student, parent)" id="register-btn">Create an account
+                            (enrolled student, parent)</a>
+                        <a class="btn btn-sm btn-info" href="https://sms.dhvsu.edu.ph/padmission"
+                            id="btn_application">New Applicant (freshman, transferee)</a>
+                    </p>
+                    <p>
+                        <span class="existing-account">Existing account but not yet</span> <a href="javascript:;"
+                            id="activate-btn">
+                            <span class="label-activated">Activated ?</span> </a>
+                    </p>
+                </div>
+            </form>
+            <!-- END LOGIN FORM -->
+            <!-- BEGIN FORGOT PASSWORD FORM -->
+            <form class="forget-form" action="" method="post" novalidate="novalidate">
+                <h3 class="forgot-password">Forgot your password ?</h3>
+                <div class="alert alert-danger reset-alert display-hide">
+                </div>
+                <p class="reset-show label-reset-password">Enter your e-mail address below to reset your password.</p>
+                <div class="form-group reset-show">
+                    <div class="input-icon">
+                        <i class="fa fa-envelope"></i>
+                        <input class="form-control placeholder-no-fix input-email" type="text" autocomplete="off"
+                            placeholder="Email" name="email">
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn back-btn">
+                        <i class="m-icon-swapleft"></i> <span class="label-back">Back</span> </button>
+                    <button type="submit" class="btn blue pull-right reset-show" id="btnResetPassword">
+                        <span class="label-submit">Submit</span> <i class="m-icon-swapright m-icon-white"></i>
+                    </button>
+                </div>
+            </form>
+            <!-- END FORGOT PASSWORD FORM -->
+
+
+            <form class="activation-form" action="" method="post" style="display: none;">
+                <h3>Re-send Activation Code?</h3>
+                <div class="alert alert-danger reset-alert display-hide">
+                </div>
+                <p class="">
+                    Enter your e-mail address below to resend activation code
+                </p>
+                <div class="form-group">
+                    <div class="input-icon">
+                        <i class="fa fa-envelope"></i>
+                        <input class="form-control placeholder-no-fix" id="resendemail" type="text" autocomplete="off"
+                            placeholder="Email" name="email">
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn back-btn">
+                        <i class="m-icon-swapleft"></i> Back </button>
+                    <button type="button" class="btn blue pull-right" id="btnresendcode">
+                        Send <i class="fa fa-paper-plane"></i>
+                    </button>
+                </div>
+            </form>
+
+
+
+            <!-- BEGIN REGISTRATION FORM -->
+
+            <form class="register-form" action="https://sms.dhvsu.edu.ph/register" method="post"
+                novalidate="novalidate">
+
+                <h3 class="label-signup">Sign Up</h3>
+                <div class="alert alert-danger register-alert display-hide">
+                </div>
+                <p class="label-account-details">Enter your account details below:</p>
+                <div class="form-group">
+                    <label class="control-label visible-ie8 visible-ie9">Account Type</label>
+                    <select name="acctype" id="acctype" class="form-control">
+                        <option value="0" selected="" class="label-student">Student</option>
+
+                        <option value="1" class="label-parent-guardian">Parent/Guardian</option>
+
+                    </select>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label visible-ie8 visible-ie9">Last Name</label>
+                            <div class="input-icon">
+                                <i class="fa fa-font"></i>
+                                <input class="form-control placeholder-no-fix input-last-name" type="text"
+                                    placeholder="Last Name" name="fullname" value="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label visible-ie8 visible-ie9">First Name</label>
+                            <div class="input-icon">
+                                <i class="fa fa-font"></i>
+                                <input class="form-control placeholder-no-fix input-first-name" type="text"
+                                    placeholder="First Name" name="fname" value="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                    <label class="control-label visible-ie8 visible-ie9">Email</label>
+                    <div class="input-icon">
+                        <i class="fa fa-envelope"></i>
+                        <input class="form-control placeholder-no-fix input-email" type="email" placeholder="Email"
+                            name="Email" id="Email" value="">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label visible-ie8 visible-ie9">Username</label>
+                    <div class="input-icon">
+                        <i class="fa fa-user"></i>
+                        <input class="form-control placeholder-no-fix input-username" type="text" autocomplete="off"
+                            placeholder="Username" name="Username" minlength="6" maxlength="15" value="">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label visible-ie8 visible-ie9">Password</label>
+                    <div class="input-icon">
+                        <i class="fa fa-lock"></i>
+                        <input class="form-control placeholder-no-fix input-password" type="password" autocomplete="off"
+                            id="register_password" placeholder="Password" name="upassword">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label visible-ie8 visible-ie9">Re-type Your Password</label>
+                    <div class="controls">
+                        <div class="input-icon">
+                            <i class="fa fa-check"></i>
+                            <input class="form-control placeholder-no-fix input-retype-password" type="password"
+                                autocomplete="off" placeholder="Re-type your password" name="rpassword">
+                        </div>
+                    </div>
+                </div>
+                <input type="hidden" name="_token" id="_token" value="7YhRxiPK2YWK4NcMtBibHDo0xQIbLsqj2s6kdr5d">
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" name="tnc" id="tnc" class="checker"> <span
+                            style="color:black !important">I agree to the</span>
+                        <a href="javascript:;" id="term_of_service">Terms of Service</a>
+                    </label>
+                    <div id="register_tnc_error">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" name="dpp" id="dpp" class="checker"> <span
+                            style="color:black !important">I agree to the</span>
+                        <a href="javascript:;" data-menu="privacy" class="options">Data Privacy Policy </a>
+                    </label>
+                </div>
+
+                <div class="form-actions">
+                    <button id="register-back-btn" type="button" class="btn"><i class="m-icon-swapleft"></i> <span
+                            class="label-back">Back</span> </button>
+                    <button type="button" id="register-submit-btn" class="btn blue pull-right"> <span
+                            class="label-signup">Sign Up</span> <i class="m-icon-swapright m-icon-white"></i></button>
+                </div>
+            </form> <!-- END REGISTRATION FORM -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h4 class="modal-title" id="myModalLabel">Terms &amp; Conditions</h4>
+                        </div>
+                        <div class="modal-body custom-scroll terms-body">
+                            <div id="left">
+                                <h2>Introduction</h2>
+                                <p>These terms and conditions govern your use of this website; by using this website,
+                                    you accept these terms and conditions in full. If you disagree with these terms and
+                                    conditions or any part of these terms and conditions, you must not use this website.
+                                </p>
+                                <p>[You must be a student, parent, faculty and school admins to use this website. By
+                                    using this website [and by agreeing to these terms and conditions] you warrant and
+                                    represent that you are student, parent, faculty and school admins in this school.]
+                                </p>
+                                <h2>License to use website</h2>
+                                <p>Unless otherwise stated, [NAME] and/or its licensors own the intellectual property
+                                    rights in the website and material on the website. Subject to the license below, all
+                                    these intellectual property rights are reserved.</p>
+                                <p>You may view, download for caching purposes only, and print pages [or [OTHER
+                                    CONTENT]] from the website for your own personal use, subject to the restrictions
+                                    set out below and elsewhere in these terms and conditions.</p>
+
+                                <p>You must not:</p>
+                                <ul>
+                                    <li>republish material from this website (including republication on another
+                                        website);</li>
+                                    <li>sell, rent or sub-license material from the website;</li>
+                                    <li>show any material from the website in public;</li>
+                                    <li>reproduce, duplicate, copy or otherwise exploit material on this website for a
+                                        commercial purpose;]</li>
+                                    <li>[edit or otherwise modify any material on the website; or]</li>
+                                    <li>[redistribute material from this website [except for content specifically and
+                                        expressly made available for redistribution].]</li>
+                                </ul>
+                                <p>[Where content is specifically made available for redistribution, it may only be
+                                    redistributed [within your organisation].]</p>
+
+                                <h2>Acceptable use</h2>
+
+                                <p>You must not use this website in any way that causes, or may cause, damage to the
+                                    website or impairment of the availability or accessibility of the website; or in any
+                                    way which is unlawful, illegal, fraudulent or harmful, or in connection with any
+                                    unlawful, illegal, fraudulent or harmful purpose or activity.</p>
+
+                                <p>You must not use this website to copy, store, host, transmit, send, use, publish or
+                                    distribute any material which consists of (or is linked to) any spyware, computer
+                                    virus, Trojan horse, worm, keystroke logger, rootkit or other malicious computer
+                                    software.</p>
+
+                                <p>You must not conduct any systematic or automated data collection activities
+                                    (including without limitation scraping, data mining, data extraction and data
+                                    harvesting) on or in relation to this website without [NAME'S] express written
+                                    consent.</p>
+
+                                <p>[You must not use this website to transmit or send unsolicited commercial
+                                    communications.]</p>
+
+                                <p>[You must not use this website for any purposes related to marketing without [NAME'S]
+                                    express written consent.]</p>
+
+                                <h2>[Restricted access]</h2>
+
+                                <p>[Access to certain areas of this website is restricted.] PRIISMS ONLINE reserves the
+                                    right to restrict access to [other] areas of this website, or indeed this entire
+                                    website, at [NAME'S] discretion.</p>
+
+                                <p>If PRIISMS ONLINE provides you with a user ID and password to enable you to access
+                                    restricted areas of this website or other content or services, you must ensure that
+                                    the user ID and password are kept confidential.</p>
+
+                                <p>[PRIISMS ONLINE may disable your user ID and password in [NAME'S] sole discretion
+                                    without notice or explanation.]</p>
+
+                                <h2>[User content]</h2>
+
+                                <p>In these terms and conditions, �your user content� means material (including without
+                                    limitation text, images, audio material, video material and audio-visual material)
+                                    that you submit to this website, for whatever purpose.</p>
+
+                                <p>You grant to PRIISMS ONLINE a worldwide, irrevocable, non-exclusive, royalty-free
+                                    license to use, reproduce, adapt, publish, translate and distribute your user
+                                    content in any existing or future media. You also grant to PRIISMS ONLINE the right
+                                    to sub-license these rights, and the right to bring an action for infringement of
+                                    these rights.</p>
+
+                                <p>Your user content must not be illegal or unlawful, must not infringe any third
+                                    party's legal rights, and must not be capable of giving rise to legal action whether
+                                    against you or PRIISMS ONLINE or a third party (in each case under any applicable
+                                    law).</p>
+
+                                <p>You must not submit any user content to the website that is or has ever been the
+                                    subject of any threatened or actual legal proceedings or other similar complaint.
+                                </p>
+
+                                <p>PRIISMS ONLINE reserves the right to edit or remove any material submitted to this
+                                    website, or stored on PRIISMS ONLINE's servers, or hosted or published upon this
+                                    website.</p>
+
+                                <p>[Notwithstanding PRIISMS ONLINE's rights under these terms and conditions in relation
+                                    to user content, PRIISMS ONLINE does not undertake to monitor the submission of such
+                                    content to, or the publication of such content on, this website.]</p>
+
+                                <h2>No warranties</h2>
+
+                                <p>This website is provided �as is� without any representations or warranties, express
+                                    or impliePRIISMSISMS ONLINE makes no representations or warranties in relation to
+                                    this website or the information and materials provided on this website.</p>
+
+                                <p>Without prejudice to the generality of the foregoing paragraph, PRIISMS ONLINE does
+                                    not warrant that:</p>
+                                <ul>
+                                    <li>this website will be constantly available, or available at all; or</li>
+                                    <li>the information on this website is complete, true, accurate or non-misleading.
+                                    </li>
+                                </ul>
+                                <p>Nothing on this website constitutes, or is meant to constitute, advice of any kind.
+                                    [If you require advice in relation to any [legal, financial or medical] matter you
+                                    should consult an appropriate professional.]</p>
+
+                                <h2>Limitations of liability</h2>
+
+                                <p>PRIISMS ONLINE will not be liable to you (whether under the law of contact, the law
+                                    of torts or otherwise) in relation to the contents of, or use of, or otherwise in
+                                    connection with, this website:</p>
+                                <ul>
+                                    <li>[to the extent that the website is provided free-of-charge, for any direct
+                                        loss;]</li>
+                                    <li>for any indirect, special or consequential loss; or</li>
+                                    <li>for any business losses, loss of revenue, income, profits or anticipated
+                                        savings, loss of contracts or business relationships, loss of reputation or
+                                        goodwill, or loss or corruption of information or data.</li>
+                                </ul>
+                                <p>These limitations of liability apply even if PRIISMS ONLINE has been expressly
+                                    advised of the potential loss.</p>
+
+                                <h2>Exceptions</h2>
+
+                                <p>Nothing in this website disclaimer will exclude or limit any warranty implied by law
+                                    that it would be unlawful to exclude or limit; and nothing in this website
+                                    disclaimer will exclude or limit PRIISMS ONLINE's liability in respect of any:</p>
+                                <ul>
+                                    <li>death or personal injury caused by PRIISMS ONLINE's negligence;</li>
+                                    <li>fraud or fraudulent misrepresentation on the part of PRIISMS ONLINE; or</li>
+                                    <li>matter which it would be illegal or unlawful for PRIISMS ONLINE to exclude or
+                                        limit, or to attempt or purport to exclude or limit, its liability.</li>
+                                </ul>
+                                <h2>Reasonableness</h2>
+
+                                <p>By using this website, you agree that the exclusions and limitations of liability set
+                                    out in this website disclaimer are reasonable.</p>
+
+                                <p>If you do not think they are reasonable, you must not use this website.</p>
+
+                                <h2>Other parties</h2>
+
+                                <p>[You accept that, as a limited liability entity, PRIISMS ONLINE has an interest in
+                                    limiting the personal liability of its officers and employees. You agree that you
+                                    will not bring any claim personally against PRIISMS ONLINE's officers or employees
+                                    in respect of any losses you suffer in connection with the website.]</p>
+
+                                <p>[Without prejudice to the foregoing paragraph,] you agree that the limitations of
+                                    warranties and liability set out in this website disclaimer will protect PRIISMS
+                                    ONLINE's officers, employees, agents, subsidiaries, successors, assigns and
+                                    sub-contractors as well as PRIISMS ONLINE.</p>
+
+                                <h2>Unenforceable provisions</h2>
+
+                                <p>If any provision of this website disclaimer is, or is found to be, unenforceable
+                                    under applicable law, that will not affect the enforceability of the other
+                                    provisions of this website disclaimer.</p>
+
+                                <h2>Indemnity</h2>
+
+                                <p>You hereby indemnify PRIISMS ONLINE and undertake to keep PRIISMS ONLINE indemnified
+                                    against any losses, damages, costs, liabilities and expenses (including without
+                                    limitation legal expenses and any amounts paid by PRIISMS ONLINE to a third party in
+                                    settlement of a claim or dispute on the advice of PRIISMS ONLINE's legal advisers)
+                                    incurred or suffered by PRIISMS ONLINE arising out of any breach by you of any
+                                    provision of these terms and conditions[, or arising out of any claim that you have
+                                    breached any provision of these terms and conditions].</p>
+
+                                <h2>Breaches of these terms and conditions</h2>
+
+                                <p>Without prejudice to PRIISMS ONLINE's other rights under these terms and conditions,
+                                    if you breach these terms and conditions in any way, PRIISMS ONLINE may take such
+                                    action as PRIISMS ONLINE deems appropriate to deal with the breach, including
+                                    suspending your access to the website, prohibiting you from accessing the website,
+                                    blocking computers using your IP address from accessing the website, contacting your
+                                    internet service provider to request that they block your access to the website
+                                    and/or bringing court proceedings against you.</p>
+
+                                <h2>Variation</h2>
+
+                                <p>PRIISMS ONLINE may revise these terms and conditions from time-to-time. Revised terms
+                                    and conditions will apply to the use of this website from the date of the
+                                    publication of the revised terms and conditions on this website. Please check this
+                                    page regularly to ensure you are familiar with the current version.</p>
+
+                                <h2>Assignment</h2>
+
+                                <p>PRIISMS ONLINE may transfer, sub-contract or otherwise deal with PRIISMS ONLINE's
+                                    rights and/or obligations under these terms and conditions without notifying you or
+                                    obtaining your consent.</p>
+
+                                <p>You may not transfer, sub-contract or otherwise deal with your rights and/or
+                                    obligations under these terms and conditions.</p>
+
+                                <h2>Severability</h2>
+
+                                <p>If a provision of these terms and conditions is determined by any court or other
+                                    competent authority to be unlawful and/or unenforceable, the other provisions will
+                                    continue in effect. If any unlawful and/or unenforceable provision would be lawful
+                                    or enforceable if part of it were deleted, that part will be deemed to be deleted,
+                                    and the rest of the provision will continue in effect.</p>
+
+                                <h2>Entire agreement</h2>
+
+                                <p>These terms and conditions [, together with [DOCUMENTS],] constitute the entire
+                                    agreement between you and PRIISMS ONLINE in relation to your use of this website,
+                                    and supersede all previous agreements in respect of your use of this website.</p>
+
+                                <h2>Law and jurisdiction</h2>
+
+                                <p>These terms and conditions will be governed by and construed in accordance with
+                                    [GOVERNING LAW], and any disputes relating to these terms and conditions will be
+                                    subject to the [non-]exclusive jurisdiction of the courts of [JURISDICTION].</p>
+                                <!-- 
+            <h2>About these website terms and conditions</h2>
+            <p>We created these website terms and conditions with the help of a free website terms and conditions form developed by Contractology and available at <a href="http://www.SmartAdmin.com">www.SmartAdmin.com</a>.
+Contractology supply a wide variety of commercial legal documents, such as <a href="#">template data protection statements</a>.
+</p>
+            <h2>[Registrations and authorisations]</h2>
+
+            <p>[PRIISMS ONLINE is registered with [TRADE REGISTER].  You can find the online version of the register at [URL].  PRIISMS ONLINE's registration number is [NUMBER].]</p>
+
+            <p>[PRIISMS ONLINE is subject to [AUTHORISATION SCHEME], which is supervised by [SUPERVISORY AUTHORITY].]</p>
+
+            <p>[PRIISMS ONLINE is registered with [PROFESSIONAL BODY].  PRIISMS ONLINE's professional title is [TITLE] and it has been granted in [JURISDICTION].  PRIISMS ONLINE is subject to the [RULES] which can be found at [URL].]</p>
+
+            <p>[PRIISMS ONLINE subscribes to the following code[s] of conduct: [CODE(S) OF CONDUCT].  [These codes/this code] can be consulted electronically at [URL(S)].</p>
+
+            <p>[PRIISMS ONLINE's [TAX] number is [NUMBER].]]</p>
+
+            <h2>PRIISMS ONLINE's details</h2>
+
+            <p>The full name of PRIISMS ONLINE is [FULL NAME].</p>
+
+            <p>[PRIISMS ONLINE is registered in [JURISDICTION] under registration number [NUMBER].]</p>
+
+            <p>PRIISMS ONLINE's [registered] address is [ADDRESS].</p>
+
+            <p>You can contact PRIISMS ONLINE by email to [EMAIL].</p>
+
+-->
+
+                            </div>
+
+                            <br><br>
+
+                            <p><strong>By using this WEBSITE TERMS AND CONDITIONS template document, you agree to the
+                                    <a href="#">terms and conditions</a> set out on
+                                    <a href="https://sms.dhvsu.edu.ph">https://sms.dhvsu.edu.ph</a>. You must retain the
+                                    credit
+                                    set out in the section headed "ABOUT THESE WEBSITE TERMS AND CONDITIONS". Subject to
+                                    the licensing restrictions, you should
+                                    edit the document, adapting it to the requirements of your jurisdiction, your
+                                    business and your
+                                    website. If you are not a lawyer, we recommend that you take professional legal
+                                    advice in relation to the editing and
+                                    use of the template.</strong></p>
+
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">
+                                Cancel
+                            </button>
+                            <button type="button" class="btn btn-primary" id="i-agree">
+                                <i class="fa fa-check"></i> I Agree
+                            </button>
+
+                            <button type="button" class="btn btn-danger pull-left" id="print">
+                                <i class="fa fa-print"></i> Print
+                            </button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div>
+            <div class="modal fade" id="mPrivacy" tabindex="-1" role="dialog" aria-labelledby="mPrivacyLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h4 class="modal-title" id="mPrivacyLabel">Data Privacy</h4>
+                        </div>
+                        <div class="modal-body custom-scroll privacy-body">
+
+
+
+                            <p>CONFORME:
+                            </p>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;By signing below, I hereby certify that all the information
+                                written in this application are complete and accurate. I agree to update the Office of
+                                Admissions and the Registrar’s Office for any changes. I
+                                acknowledge that I have read and understood the Pampanga State University
+                                (PampangaStateU) Admissions Privacy Notice posted in the office premises. I understand
+                                that by applying for admission/registering as a student
+                                of this university, I allow PampangaStateU through the Office of Admissions to collect,
+                                record, organize, update or modify, retrieve, consult, utilize, consolidate, block,
+                                erase or delete any information which are a part of my personal data
+                                for historical, statistical, research and evaluation purposes pursuant to the provisions
+                                of the Republic Act No. 10173 of the Philippines, Data Privacy Act of 2012 and its
+                                corresponding Implementing Rules and Regulations. I also
+                                agree, if accepted as a student, that my admission, matriculation, legibility for any
+                                assistance/grant, and graduation are subject to the rules and regulations of this
+                                institution.&nbsp;<br></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">
+                                Cancel
+                            </button>
+                            <button type="button" class="btn btn-primary" id="i-agree">
+                                <i class="fa fa-check"></i> I Agree
+                            </button>
+
+                            <button type="button" class="btn btn-danger pull-left hide" id="print">
+                                <i class="fa fa-print"></i> Print
+                            </button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div>
+            <div id="register-success" class="register-form" novalidate="novalidate">
+
+                <div class="well">
+                    <p style="font-size: 12pt;font-weight: bold;">Please enter your verification code sent to your email
+                    </p>
+
+                    <input type="text" class="form-control" id="vcode" name="vcode" value="">
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-default " id="btnresend"> Resend Verification Code
+                        </button>
+                        <button type="button" class="btn btn-success pull-right" id="btnconfirm"> Submit </button>
+                    </div>
+
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
+
+        </div>
+        <div class="locale"></div>
+        <div class="copyright">
+            <div class="form-group">
+                <label for="">Choose Language</label>
+                <select class="language-selector" data-width="fit">
+                    <option value="en"
+                        data-content="&lt;span class=&quot;flag-icon flag-icon-us&quot;&gt;&lt;/span&gt; English">
+                        English</option>
+                    <option value="chi"
+                        data-content="&lt;span class=&quot;flag-icon flag-icon-mx&quot;&gt;&lt;/span&gt; Chinese">中文
+                    </option>
+                </select>
+            </div>
+            Powered by : Prince Technologies Corporation
+        </div>
+        <!--[if lt IE 9]>
+<script src="https://sms.dhvsu.edu.ph/assets/global/plugins/respond.min.js"></script>
+<script src="https://sms.dhvsu.edu.ph/assets/global/plugins/excanvas.min.js"></script>
+<![endif]-->
+    </div>
+    <script type="text/javascript" async="" charset="utf-8"
+        src="https://www.gstatic.com/recaptcha/releases/AWtrSI7lAmTAfV1rzWqEqz54/recaptcha__en.js"
+        crossorigin="anonymous"
+        integrity="sha384-DNsk1l2N8IJMT/1D2GaYe7/7wf4BKkES+NGns242eIkpk/PIUnpeVsUuno96AxVX"></script>
+    <script src="https://sms.dhvsu.edu.ph/assets/system/scripts/locale-en.js?v1.1.1" type="text/javascript"></script>
+    <script src="https://sms.dhvsu.edu.ph/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+    <script src="https://sms.dhvsu.edu.ph/assets/global/plugins/bootstrap/js/bootstrap.min.js"
+        type="text/javascript"></script>
+    <script src="https://sms.dhvsu.edu.ph/assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+    <script src="https://sms.dhvsu.edu.ph/assets/global/plugins/jquery-validation/js/jquery.validate.min.js"
+        type="text/javascript"></script>
+    <script src="https://sms.dhvsu.edu.ph/assets/global/plugins/backstretch/jquery.backstretch.min.js"
+        type="text/javascript"></script>
+    <script src="https://sms.dhvsu.edu.ph/assets/global/plugins/bootbox/bootbox.min.js"></script>
+    <script src="https://sms.dhvsu.edu.ph/assets/system/scripts/general.js?v1.1.3" type="text/javascript"></script>
+    <script src="https://sms.dhvsu.edu.ph/assets/system/scripts/Accounts/Login.js?v1.2.1"
+        type="text/javascript"></script>
+    <script src="https://sms.dhvsu.edu.ph/assets/global/plugins/jquery-hotkeys/jquery.hotkeys.js"
+        type="text/javascript"></script>
+    <script src="https://www.google.com/recaptcha/api.js?render="></script>
+
+    <!-- END PAGE LEVEL SCRIPTS -->
+    <script>
+        const base_url = 'https://sms.dhvsu.edu.ph';
+        var gkey = "";
+        var time_idle = 500000; // Set time idle in seconds
+
+        $(window).bind("mousemove mouseclick keydown mousewheel", function () { //user interaction on the page
+            if (window.idleTimeout) {
+                clearTimeout(window.idleTimeout);
+            }
+            window.idleTimeout = setTimeout(triggerIdle, time_idle);
+        });
+
+        function triggerIdle() {
+            location.reload();
+        }
+
+        function togglePassword(e, input) {
+            const passwordInput = document.getElementById(input);
+            const passwordIcon = e;
+            const type = passwordInput.getAttribute("type");
+
+            if (type == "password") {
+                passwordInput.setAttribute("type", 'text');
+                passwordIcon.classList.replace("fa-eye-slash", "fa-eye");
+            } else {
+                passwordInput.setAttribute("type", 'password');
+                passwordIcon.classList.replace("fa-eye", "fa-eye-slash");
+            }
+        }
+
+
+        jQuery(document).bind('keydown.Ctrl_return', function (evt) {
+            jQuery('.body-login').removeClass('hide');
+            return false;
+        });
+
+        jQuery(document).ready(function () {
+            Login.init();
+            $.backstretch(
+                ["https://sms.dhvsu.edu.ph/general/getThemePhoto?tid=1&field=login_bg"],
+                {
+                    fade: 1000,
+                    duration: 8000
+                });
+
+            $('#Username').focus();
+        });
+    </script>
+    <!-- END JAVASCRIPTS -->
+
+
+    <div class="backstretch"
+        style="left: 0px; top: 0px; overflow: hidden; margin: 0px; padding: 0px; height: 127px; width: 1920px; z-index: -999999; position: fixed;">
+        <img style="position: absolute; margin: 0px; padding: 0px; border: medium; width: 1920px; height: 1279.69px; max-height: none; max-width: none; z-index: -999999; top: -576.344px; left: 0px;"
+            src="https://sms.dhvsu.edu.ph/general/getThemePhoto?tid=1&amp;field=login_bg"></div>
+</body><!-- END BODY -->
+
+</html>
