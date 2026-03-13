@@ -7,6 +7,8 @@ interface UploadProps {
     onComplete?: (base64Data: string) => void;
 }
 
+
+
 const Upload = ({ onComplete }: UploadProps) => {
     const [file, setFile] = useState<File | null>(null);
     const [isDragging, setIsDragging] = useState(false);
