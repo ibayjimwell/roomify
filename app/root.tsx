@@ -90,11 +90,16 @@ export default function App() {
     return await refreshAuth();
   }
 
+  const onComplete = (data: string) => {
+    // Handle completion, e.g., navigate or process data
+    console.log('Upload complete with data:', data);
+  }
+
   return (
     <main className="min-h-screen bg-background text-foreground relative z-10">
       <Outlet 
         context={{
-          ...authState, refreshAuth, signIn, signOut
+          ...authState, refreshAuth, signIn, signOut, onComplete
         }}
       />
     </main>
