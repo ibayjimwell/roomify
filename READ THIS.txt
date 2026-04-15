@@ -1,0 +1,2 @@
+The upload is not working it's not showing the image visualizer.
+The cause of the bug is on the dev tool console see those warnings.
